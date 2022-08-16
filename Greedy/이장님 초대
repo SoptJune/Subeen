@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Aug 16 22:36:02 2022
+
+@author: kimsubin
+"""
+
+#import sys
+
+#input = lambda: sys.stdin.readline().rstrip()
+#print = lambda x: sys.stdout.write(str(x) + "\n")
+
+n = int(input())
+tree = list(map(int, input().split()))
+
+tree.sort(reverse=True)
+result = []
+for i in range(n):
+    result.append(1 + tree[i] + i)
+
+print(max(result) + 1) # 묘목 모두 심은 다음날 구하기

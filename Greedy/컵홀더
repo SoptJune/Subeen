@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Aug 16 22:05:26 2022
+
+@author: kimsubin
+
+"""
+
+
+people = int(input())
+seat = input().replace('LL','L')
+cup = len(seat)+1
+print(min(cup,people))

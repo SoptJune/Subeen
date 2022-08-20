@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Aug 18 23:47:33 2022
+
+@author: kimsubin
+"""
+
+n, m = map(int, input().split())
+
+list_n = set()  
+list_m = set()  
+for _ in range(n):
+    list_n.add(input())
+for _ in range(m):
+    list_m.add(input())
+    
+# 교집합을 구한다음 정렬
+result = sorted(list(list_n & list_m))  
+
+print(len(result))
+for i in result:
+    print(i)

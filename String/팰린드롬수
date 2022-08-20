@@ -15,4 +15,4 @@ while True:
     if number == "0" :
         break
     else:
-        print( "Yes" if number == number[::-1] else "No")
+        print( "yes" if number == number[::-1] else "no")

@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Aug 20 22:24:50 2022
+
+@author: kimsubin
+"""
+
+n = int(input()) #개수
+guitar = []
+
+for _ in range(n):
+    count = 0
+    result = input()
+    for i in result:
+        if i.isdigit():
+           count += int(i)
+    guitar.append((result,count))
+guitar.sort(key = lambda x : (len(x[0]),x[1],x[0]))
+
+        
+for i in guitar:
+    print(i[0])

@@ -1,0 +1,56 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Aug 24 23:17:35 2022
+
+@author: kimsubin
+"""
+
+import sys
+input = lambda: sys.stdin.readline().rstrip()
+print = lambda x: sys.stdout.write(str(x) + "\n")
+
+def dfs(prev, node, graph, visited):
+    # 방문처리
+    visited[node] = True 
+    for next_node in graph[node]:
+       
+        if next_node == prev:
+            continue
+    
+        if visited[next_node]:
+            return False
+      
+        if not dfs(node, next_node, graph, visited):
+            return False
+
+    return True
+
+i = 1
+n, m = map(int, input().split())
+
+while n + m != 0:
+    graph = [[] for _ in range(n+1)] # 인접 노드 저장하는 그래프
+    visited = [False] * (n+1) # 방문 여부 확인하는 배열
+    for _ in range(m):
+        a, b = map(int, input().split())
+        # 양방향으로 노드 저장
+        graph[a].append(b) 
+        graph[b].append(a)
+
+    t = 0 # 트리의 개수
+    for v in range(1, n+1):
+        if not visited[v]: 
+            if dfs(0, v, graph, visited):
+                t += 1 
+                
+    if t == 0:
+        print("Case {}: No trees.".format(i))
+    elif t == 1:
+        print("Case {}: There is one tree.".format(i))
+    else:
+        print("Case {}: A forest of {} trees.".format(i, t))
+
+    n, m = map(int, input().split())
+    i += 1
+

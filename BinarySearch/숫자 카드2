@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Aug 25 23:48:44 2022
+
+@author: kimsubin
+"""
+import sys
+input = lambda: sys.stdin.readline().rstrip()
+print = lambda x: sys.stdout.write(str(x) + "\n")
+
+n = int(input())
+dic = {}
+list_a = list(map(int, input().split()))
+for item in list_a:
+    if item not in dic:
+        dic[item] = 0
+    dic[item]+=1
+    
+m = int(input())
+
+list_b = list(map(int, input().split()))
+        
+print(' '.join(str(dic[i]) if i in dic else '0' for i in list_b))

@@ -1,0 +1,42 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Aug 26 21:11:27 2022
+
+@author: kimsubin
+"""
+
+import sys
+input = lambda: sys.stdin.readline().rstrip()
+print = lambda x: sys.stdout.write(str(x) + "\n")
+
+n = int(input())
+number = list(map(int, input().split()))
+M = int(input())
+array = list(map(int, input().split()))
+number.sort()		
+
+
+for num in array:
+    left, right = 0, n - 1		
+    flag = False		
+
+   
+    while True:		
+        
+        mid = (left + right) // 2	
+        
+        if num == number[mid]:	
+            print(1)		
+            break		
+        elif num > number[mid]:	
+            left = mid + 1	
+        else:			
+            right = mid - 1	
+
+    if not flag:
+        print(0)		
+        
+        
+        
+    

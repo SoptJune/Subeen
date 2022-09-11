@@ -1,0 +1,36 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Sep 11 23:01:04 2022
+
+@author: kimsubin
+"""
+import sys
+input = lambda: sys.stdin.readline().rstrip()
+print = lambda x: sys.stdout.write(str(x) + "\n")
+
+
+d = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+
+def dfs(x, y, visited, p):
+    global ans
+    if len(visited) == n+1:
+        ans += p
+        return
+    for idx in range(4):
+        nx = x + d[idx][0]
+        ny = y + d[idx][1]
+        
+        if (nx, ny) not in visited:
+            
+            visited.append((nx, ny))
+            dfs(nx, ny, visited, p*location[idx])
+            visited.pop()
+            
+n, east, west, south, north = map(int, input().split())
+location = [east, west, south, north] 
+ans = 0
+
+dfs(0, 0, [(0, 0)], 1)
+
+print(ans * (0.01 ** n))

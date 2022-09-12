@@ -6,6 +6,10 @@ Created on Sun Sep 11 22:09:58 2022
 @author: kimsubin
 """
 
+import sys
+input = lambda: sys.stdin.readline().rstrip()
+print = lambda x: sys.stdout.write(str(x) + "\n")
+
 dx, dy = [-1, 0, 1, 0], [0, 1, 0, -1]
 
 

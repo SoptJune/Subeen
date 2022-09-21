@@ -1,0 +1,31 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Sep 21 15:24:56 2022
+
+@author: kimsubin
+"""
+
+import sys
+input = lambda: sys.stdin.readline().rstrip()
+print = lambda x: sys.stdout.write(str(x) + "\n")
+
+n,m = map(int,input().split())
+tree = list(map(int,input().split()))
+
+start = 0
+end = max(tree)
+
+while start <= end:
+    total = 0
+    mid =(start+end)//2
+    
+    for i in tree:
+        if i > mid:
+            total += i-mid
+    if total < m:
+        end = mid-1
+    else:
+        start = mid+1
+
+print(end)

@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+import sys
+input = lambda: sys.stdin.readline()
+print = lambda x: sys.stdout.write(str(x) + "\n")
+
+channel = int(input())
+n = int(input())
+button= list(map(int, input().split()))
+
+# 100번채널 기준 +,-만 사용하여 이동하는 경우
+min_count = abs(100 - channel)
+
+for num in range(1000001):
+    
+    num = str(num)
+    
+    for i in range(len(num)):
+        # 각 버튼이 고장났는지 확인 후, 고장 났으면 break
+        if int(num[i]) in button:
+            break
+
+        # 고장난 숫자 없이 마지막 자리까지 왔다면 min_count 비교 후 업데이트
+        elif i == len(num) - 1: # 끝까지 왔을 때
+            min_count = min(min_count, abs(int(num) - channel) + len(num))
+
+print(min_count)

@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Oct 19 23:09:03 2022
+
+@author: kimsubin
+"""
+
+import sys
+input = lambda: sys.stdin.readline()
+print = lambda x: sys.stdout.write(str(x) + "\n")
+
+def food(a,b):
+    while b:
+        a, b = b, a%b
+    return a
+     
+n,m = map(int,input().split())
+print(m-food(n,m))
+
+

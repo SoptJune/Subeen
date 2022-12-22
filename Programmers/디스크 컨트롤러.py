@@ -9,7 +9,7 @@ def solution(jobs):
 
     jobs = sorted(jobs, key=lambda x: x[1])  
 
-    while len(jobs) != 0:
+    while jobs:
         
         for i in range(jobs_length):
             
@@ -19,7 +19,7 @@ def solution(jobs):
                 jobs.pop(i)
                 break
             
-            if i == jobs_length - 1:
+            else :
                 start += 1
 
     return answer // jobs_length

@@ -26,7 +26,6 @@ def dfs(day,food,yesterday):
             dfs(day+1, food + [i],i)
 
 n = int(input())
-days = []
 flag = False
 days = [list(map(int,input().split())) for _ in range(n)]
 visited = [[False]*10 for _ in range(n+1)]
